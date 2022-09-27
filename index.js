@@ -1,12 +1,10 @@
+const generateAccessToken = require("./jwt");
 const http = require("http");
-
-const { generateAccessToken } = require("./jwt");
-
 const requestListener = function (req, res) {
   res.writeHead(200);
   res.end("Hello, World!");
 };
-
+const healer = "debugger";
 const heal = generateAccessToken(healer);
 console.log(heal);
 
