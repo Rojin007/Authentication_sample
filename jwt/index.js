@@ -8,8 +8,8 @@ dotenv.config();
 
 // access config var
 process.env.TOKEN_SECRET;
-function generateAccessToken(username) {
-  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: "1800s" });
-}
+const generateAccessToken = (username) => {
+  return jwt.sign(username, process.env.TOKEN_SECRET);
+};
 
-module.export = { generateAccessToken };
+module.exports = { generateAccessToken };

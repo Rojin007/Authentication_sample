@@ -1,4 +1,4 @@
-const generateAccessToken = require("./jwt");
+const { generateAccessToken } = require("./jwt");
 const http = require("http");
 const requestListener = function (req, res) {
   res.writeHead(200);
