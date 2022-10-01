@@ -1,5 +1,5 @@
 const { generateAccessToken } = require("./jwt");
-
+const User = require("./models");
 const express = require("express");
 const http = require("http");
 const requestListener = function (req, res) {
@@ -8,10 +8,17 @@ const requestListener = function (req, res) {
 };
 const healer = "debugger";
 const mongoose = require("mongoose");
+const { userInfo } = require("os");
 mongoose.connect("mongodb://localhost:27017/authentication");
 var app = express();
-//app.post('/addUser',async(req,res)=>{const (user.name)req.body.name});
+app.get("/", (req, res) => {
+  res.send("hello World");
+});
+//app.post('/api/v1/signup',async(req,res)=>{const (User.name)req.body.name});
 
+const mark = new User({ name: "Mark" });
+console.log(mark.name);
+mark.save();
 const heal = generateAccessToken(healer);
 console.log(heal);
 
