@@ -8,7 +8,7 @@ const requestListener = function (req, res) {
 };
 const healer = "debugger";
 const mongoose = require("mongoose");
-const { userInfo } = require("os");
+
 mongoose.connect("mongodb://localhost:27017/authentication");
 var app = express();
 app.get("/", (req, res) => {
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 const mark = new User({ name: "Mark" });
 console.log(mark.name);
-mark.save();
+//mark.save();
 const heal = generateAccessToken(healer);
 console.log(heal);
 
