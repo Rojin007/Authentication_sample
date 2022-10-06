@@ -1,5 +1,5 @@
 const { generateAccessToken } = require("./jwt");
-const User = require("./models");
+const User = require("./Models/user");
 const express = require("express");
 const http = require("http");
 const requestListener = function (req, res) {
