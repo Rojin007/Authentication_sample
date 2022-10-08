@@ -8,12 +8,14 @@ const requestListener = function (req, res) {
 };
 const healer = "debugger";
 const mongoose = require("mongoose");
+const { CreateUser } = require("./Routes/controllers/signup");
 
 mongoose.connect("mongodb://localhost:27017/authentication");
 var app = express();
 app.get("/", (req, res) => {
   res.send("hello World");
 });
+app.post("/api/v1/sign", CreateUser);
 //app.post('/api/v1/signup',async(req,res)=>{const (User.name)req.body.name});
 
 const mark = new User({ name: "Mark" });
