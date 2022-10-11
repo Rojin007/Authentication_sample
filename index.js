@@ -4,7 +4,7 @@ const express = require("express");
 const http = require("http");
 const requestListener = function (req, res) {
   res.writeHead(200);
-  res.end("Hello, World!");
+  // res.end("Hello, World!");
 };
 const healer = "debugger";
 const mongoose = require("mongoose");
@@ -23,6 +23,7 @@ console.log(mark.name);
 //mark.save();
 const heal = generateAccessToken(healer);
 console.log(heal);
+console.log("Server Started...");
 
 const server = http.createServer(requestListener);
 server.listen(8080);
