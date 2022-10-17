@@ -1,5 +1,6 @@
 const user = require("../Schemas");
-createUser = () => {
-  user.create({ name: String });
+createUser = (data) => {
+  user.create(data);
+  return true;
 };
 module.exports = { createUser };
