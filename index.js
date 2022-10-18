@@ -1,5 +1,5 @@
-const { generateAccessToken } = require("./jwt");
-const User = require("./Models/Schemas");
+const { generateAccessToken } = require("./src/jwt");
+const User = require("./src/Models/Schemas");
 const express = require("express");
 const http = require("http");
 const apiRoutes = require("./Routes");
@@ -8,7 +8,9 @@ const healer = "debugger";
 const mongoose = require("mongoose");
 const { CreateUser } = require("./Routes/controllers/signup");
 
-mongoose.connect("mongodb://localhost:27017/authentication");
+mongoose.connect("mongodb://localhost:27017/authentication", () => {
+  console.log("Database connected");
+});
 const app = express();
 app.use(express.json());
 app.get("/", (req, res) => {
