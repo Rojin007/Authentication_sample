@@ -1,12 +1,11 @@
-const { generateAccessToken } = require("./src/jwt");
+const { generateAccessToken } = require("./src/Utils/jwt");
 const User = require("./src/Models/Schemas");
 const express = require("express");
-const http = require("http");
-const apiRoutes = require("./Routes");
+
+const apiRoutes = require("./src/Routes");
 
 const healer = "debugger";
 const mongoose = require("mongoose");
-const { CreateUser } = require("./Routes/controllers/signup");
 
 mongoose.connect("mongodb://localhost:27017/authentication", () => {
   console.log("Database connected");
@@ -16,10 +15,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("hello World");
 });
-app.post("/api/v1/sign", CreateUser);
-app.use("/api/v1", apiRoutes);
 
-//app.post('/api/v1/signup',async(req,res)=>{const (User.name)req.body.name});
+app.use("/api/v1", apiRoutes);
 
 const mark = new User({ name: "Mark" });
 console.log(mark.name);
@@ -27,7 +24,6 @@ console.log(mark.name);
 const heal = generateAccessToken(healer);
 console.log(heal);
 
-//const server = http.createServer(requestListener);
 app.listen(8080, () => {
   console.log("Server started...");
 });
