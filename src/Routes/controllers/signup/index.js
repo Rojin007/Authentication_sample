@@ -1,7 +1,8 @@
 const { createUser } = require("../../../Models/user");
 
 const CreateUser = async (req, res) => {
-  const result = await createUser(req.body.name);
+  const { name, phone, password } = req.body;
+  const result = await createUser(name, phone, password);
 
   if (result) res.send("true");
 };
