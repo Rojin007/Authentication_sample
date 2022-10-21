@@ -6,8 +6,8 @@ const createUser = async (name, phone, password) => {
   const pwd = await generateHash(password);
   const result = await user.create({
     id: uid,
-    name: name,
-    phone: phone,
+    name,
+    phone,
     password: pwd,
   });
   console.log(result);
